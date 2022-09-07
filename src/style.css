@@ -3,6 +3,12 @@
     padding: 0;
     max-width: 100%;
     overflow-x: hidden;
+    font-family: popins;
+}
+
+@font-face{
+  font-family: popins;
+  src: url(./fonts/Poppins-Medium.ttf);
 }
 
 body{
@@ -75,6 +81,7 @@ body{
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    cursor: pointer;
   }
   
   .openbtn {
@@ -116,6 +123,191 @@ body{
   }
 
   .add-btn{
-    color: white;
-    
+    color: #334155;
+    background-color: #cbd5e1;
+    border: #cbd5e1;
+    font-size: 15px;
+    cursor: pointer;
   }
+
+  /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.todo-popup{
+  background-color: #fefefe;
+  position: fixed; 
+  left: 14%;
+  top: 15%;
+  /*margin: 15% auto; /* 15% from the top and centered */
+  padding: 2%;
+  border: 1px solid #888;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20em; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-input{
+  margin-top: 5px;
+  border-radius: 5px;
+  width: 98%;
+  height: 30px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.project-input:focus{
+  outline: 1px solid blue;
+}
+
+.title-label{
+  font-size: 25px;
+  color: #334155;
+  display: block;
+}
+
+.btn-div{
+  display: flex;
+  justify-content: flex-end;
+ /* margin-right: 95px;*/
+  margin-top: 20px;
+}
+
+.btn-div button{
+  padding: 8px;
+  margin: 4px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #334155;
+  cursor: pointer;
+}
+
+.submit-project{
+  background-color: #334155;
+  color: white;
+  
+}
+
+.cancel-project:hover{
+background-color: #cbd5e1;
+}
+
+.modal-container{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  /*border: 2px solid red;*/
+}
+
+.project-list{
+  background-color: #cbd5e1;
+  border: solid 1px #cbd5e1;
+  color: #818181;
+  font-size: 17px;
+}
+
+.first-flex{
+  display: flex;
+  /*border: 2px solid green;*/
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.title-div, .date-div {
+  width: 40%;
+ /* border: 2px solid yellow;
+  padding: 5px;*/
+}
+
+.info-form{
+ /* border: solid 2px red;*/
+}
+
+.date-input, .title-input{
+  width: 95%;
+   height: 30px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.date-input:focus, .title-input:focus, .description-input:focus{
+  outline: 1px solid blue;
+}
+
+.description-input{
+  width: 95%;
+   min-height: 90px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.project-div{
+  margin-top: 5px;
+  /*border: 2px solid red;*/
+}
+
+.both-div{
+  display: flex;
+  flex-direction: column;
+}
+
+.both-div div{
+  margin-top: 10px;
+}
+
+.first-btn, .second-btn{
+  padding: 8px;
+  margin: 4px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #334155;
+  cursor: pointer;
+}
+
+.first-btn{
+  background-color: #334155;
+  color: white;
+}
+
+.second-btn{
+  background-color: white;
+}
+.second-btn:hover{
+  background-color: #cbd5e1;
+}
