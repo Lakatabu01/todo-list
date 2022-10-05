@@ -22,5 +22,5 @@ if (data) {
     console.log("name not found")
   }
 
-  localStorage.removeItem("button-content")
+  
   

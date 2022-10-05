@@ -14,26 +14,19 @@ let addIcon = document.createElement("img")
 function headerContainer(){
     const headerDiv = document.createElement('div')
     const leftIcons = document.createElement("div")
-    const rightIcons = document.createElement("div")
+  //  const rightIcons = document.createElement("div")
     const listIcon = document.createElement("img")
     const homeIcon = document.createElement("img")
-    const todoName = document.createElement("h4")
-    todoName.style.paddingLeft = "20px"
-    todoName.textContent = "Schema"
-
     
 
     listIcon.src = list
     homeIcon.src = home
     addIcon.src = add
     headerDiv.appendChild(leftIcons)
-    headerDiv.appendChild(rightIcons)
     leftIcons.appendChild(listIcon)
     leftIcons.appendChild(homeIcon)
-    //leftIcons.appendChild(todoName)
 
     leftIcons.classList.add("home-icon")
-    rightIcons.classList.add("home-icon")
     headerDiv.classList.add("header")
     homeIcon.classList.add("home-style")
     addIcon.classList.add("add-style")
