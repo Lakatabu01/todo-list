@@ -4,9 +4,6 @@ import "./style.css";
 import { todoPopup } from "./projects";
 import {data, setStyles} from "./display"
 
-localStorage.removeItem("Afolayan")
-localStorage.removeItem("veery ")
-localStorage.removeItem("bng ")
 const content = document.querySelector("#main-content")
 
 function initializeTodoList() {
