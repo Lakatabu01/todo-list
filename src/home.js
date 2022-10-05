@@ -2,8 +2,13 @@ import "./style.css";
 import list from "./format-list-bulleted.png"
 import home from "./home.png"
 import add from "./pencil-plus.png"
-import {createProjectGroup} from "./projects"
-import {modal} from "./todo"
+import {createProjectGroup, modalTwo, obj, hiddenInput, contentDiv} from "./projects"
+import { format } from "date-fns";
+
+//let hiddenInput = document.createElement("input")
+const buttonGroup = document.createElement("div")
+let current
+
 
 let addIcon = document.createElement("img")
 function headerContainer(){
@@ -12,6 +17,10 @@ function headerContainer(){
     const rightIcons = document.createElement("div")
     const listIcon = document.createElement("img")
     const homeIcon = document.createElement("img")
+    const todoName = document.createElement("h4")
+    todoName.style.paddingLeft = "20px"
+    todoName.textContent = "Schema"
+
     
 
     listIcon.src = list
@@ -21,7 +30,7 @@ function headerContainer(){
     headerDiv.appendChild(rightIcons)
     leftIcons.appendChild(listIcon)
     leftIcons.appendChild(homeIcon)
-    rightIcons.appendChild(addIcon)
+    //leftIcons.appendChild(todoName)
 
     leftIcons.classList.add("home-icon")
     rightIcons.classList.add("home-icon")
@@ -30,12 +39,22 @@ function headerContainer(){
     addIcon.classList.add("add-style")
     //listIcon.classList.add("openbtn")
 
+    homeIcon.addEventListener("click", ()=>{
+        document.location.reload()
+    })
     listIcon.addEventListener("click", openNav)
     addIcon.addEventListener("click", () => {
         modal.style.display = "block"
     })
     return headerDiv
 }
+
+
+let majorButton = document.createElement("button")
+
+let centralDiv = document.createElement("div")
+  centralDiv.classList.add("central-div")
+let buttonId
 
 let collapsibleDiv;
 function collapsibleSidebar() {
@@ -44,6 +63,54 @@ function collapsibleSidebar() {
     const inbox = document.createElement("btn")
     const today = document.createElement("btn")
     const projects = document.createElement("btn")
+
+
+    today.addEventListener("click", todayBodyDiv)
+
+    inbox.addEventListener("click", (e) => {
+
+    buttonId = e.target.textContent
+    const header = document.createElement("p")
+    inbox.setAttribute('id', buttonId)
+
+    bodyDiv.textContent = ""
+    contentDiv.textContent = ""
+    header.style.fontSize = "30px"
+    header.style.color = "#334155"
+    hiddenInput.setAttribute("value", buttonId)  
+  
+    //event listener for button used to add other tasks to a project
+     majorButton.addEventListener("click", () => {
+        modalTwo.style.display = "block"
+    })
+
+  majorButton.classList.add("major-button")
+  buttonGroup.appendChild(majorButton)
+  majorButton.textContent = "Add Task"
+  contentDiv.appendChild(header)
+  header.textContent = e.target.textContent
+  
+  bodyDiv.appendChild(centralDiv)
+  centralDiv.appendChild(contentDiv)
+  centralDiv.appendChild(buttonGroup) 
+  
+
+  if (localStorage.getItem(e.target.textContent)){
+    let listKey = hiddenInput.value
+    let allTasks = JSON.parse(localStorage.getItem(listKey)) 
+    for (let i = 0; i < allTasks.length; i++){
+        let newTodoDiv = document.createElement("div")
+     let newSentence = document.createElement("p")
+        newSentence.textContent = allTasks[i]
+        newTodoDiv.appendChild(newSentence)
+      contentDiv.appendChild(newTodoDiv)
+    }
+    
+}
+//})  
+//newProject.textContent = input.value
+current = e.target.textContent
+    })
     
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
@@ -83,7 +150,7 @@ function collapsibleSidebar() {
     let bodyDiv
 function main() {
     bodyDiv = document.createElement("div")
-    bodyDiv.textContent = "what are we doing today?"
+    //bodyDiv.textContent = "what are we doing today?"
     bodyDiv.classList.add("main")
     bodyDiv.setAttribute("id", "main")
     
@@ -108,5 +175,43 @@ function createHeader() {
   return  headerContainer()
 }
 
-export {createHeader, sidebarAndBody, addIcon}
+
+ function todayBodyDiv() {
+    const header = document.createElement("p")
+    bodyDiv.textContent = ""
+    contentDiv.textContent = ""
+    centralDiv.textContent = ""
+    header.style.fontSize = "30px"
+    header.style.color = "#334155"
+    header.textContent = "Today"
+
+    bodyDiv.appendChild(centralDiv)
+    centralDiv.appendChild(contentDiv)
+    contentDiv.appendChild(header)
+    
+    let getStoredDate = JSON.parse(localStorage.getItem("date-store"))
+
+    for (let i = 0; i < getStoredDate.length; i++){
+        let presentDay = format(new Date(), 'yyyy-MM-dd')
+        if (presentDay == getStoredDate[i].date){
+           let todoDIV = document.createElement("div")
+           let para1 = document.createElement("p")
+           let para2 = document.createElement("p")
+
+           para1.textContent = getStoredDate[i].title
+           para2.textContent = getStoredDate[i].date
+
+           todoDIV.appendChild(para1)
+           todoDIV.appendChild(para2)
+           contentDiv.appendChild(todoDIV)
+
+           todoDIV.style.display = "flex"
+           todoDIV.style.flexDirection = "row"
+           todoDIV.style.justifyContent = "space-around"
+           //todoDIV.style.padding = "5px"
+        } //else {console.log("we not yet moving o")}
+    }
+
+ }
+export {createHeader, sidebarAndBody, bodyDiv, main}
 

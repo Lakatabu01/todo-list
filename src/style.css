@@ -21,10 +21,13 @@ body{
     color: white;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    z-index: 2; 
 }
 
 .home-icon{
     padding: 0.5em;
+    padding-left: 1.5em;
 }
 
 .home-style{
@@ -47,17 +50,23 @@ body{
     width: 100%;
 }
 
+#myBtn{
+  margin-bottom: 30px;
+  padding: 5px;
+}
+
 .sidebar {
-    height: 100%;
+    height: 85%;
     width: 0;
     position: fixed;
     z-index: 1;
-    /*top: 0;*/
+    top: 43px;
     left: 0;
     background-color: #cbd5e1;
-    overflow-x: hidden;
+    overflow-x: scroll;
     transition: 0.5s;
     padding-top: 60px;
+    scroll-behavior: smooth;
   }
   
   .sidebar .btn {
@@ -111,10 +120,9 @@ body{
   .group{
     width: 80%;
     /*background-color: red;*/
-    margin-left: 10px;
+    margin-top: -10px;
     font-size: 18px;
     color: #818181;
-    
     transition: 0.3s;
     display: flex;
     
@@ -126,12 +134,27 @@ body{
     color: #334155;
     background-color: #cbd5e1;
     border: #cbd5e1;
-    font-size: 15px;
+    font-size: 18px;
     cursor: pointer;
   }
 
+  .add-btn:hover{
+    background-color: white;
+    border: 1px solid #334155;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+  }
+
+  .odin-button:hover{
+    background-color: #334155;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px black;
+    padding: 2px;
+  }
+
   /* The Modal (background) */
-.modal {
+.modal, .second-modal{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -232,8 +255,9 @@ background-color: #cbd5e1;
 }
 
 .project-list{
-  background-color: #cbd5e1;
-  border: solid 1px #cbd5e1;
+  background-color: transparent;
+  border: solid 1px transparent;
+  
   color: #818181;
   font-size: 17px;
 }
@@ -311,3 +335,81 @@ background-color: #cbd5e1;
 .second-btn:hover{
   background-color: #cbd5e1;
 }
+.main{
+  padding: 10px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.major-button{
+  background-color: white;
+  padding: 5px;
+  border: 2px solid #334155;
+  border-radius: 4px;
+  font-size: 20px;
+  margin-left: auto auto;
+  color: #334155;
+  box-shadow: 2px 2px 5px black;
+}
+
+.body-header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+}
+
+#new-item{
+  list-style-type: none;
+}
+
+#new-item:hover{
+  background-color: #334155;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px black;
+  padding: 2px;
+}
+.a-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main  div{
+  width: 100%;
+ /* border: 2px solid black;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.central-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.active-project{
+  background-color: #334155;
+}
+.items:hover{
+background-color: #334155;
+color: white;
+}
+
+.items{
+  display: flex;
+  flex-direction: row;
+ justify-content: space-between !important;
+  padding: 0 8px 5px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+  width: 80% !important; 
+}
+
+/*.gone{
+  display: none !important;
+}*/
