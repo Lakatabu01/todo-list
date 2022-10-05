@@ -8,14 +8,12 @@ let newProject
 const documentedProjects = document.createElement("ul")
 documentedProjects.classList.add("all-projects")
 
-
 let majorButton = document.createElement("button")
 let contentDiv = document.createElement("div")
 let centralDiv = document.createElement("div")
   centralDiv.classList.add("central-div")
 let buttonId
 let current
-
 
 let array = []
 const buttonGroup = document.createElement("div")
@@ -25,29 +23,28 @@ buttonGroup.classList.add("a-btn")
 function createProjectGroup() {
     const group = document.createElement("div")
     const projectDiv = document.createElement("div")
-    
     const btnDiv = document.createElement("div")
     const firstProject = document.createElement("li")
     firstProject.classList.add("odin-button")
     firstProject.style.listStyleType = "none"
 
     firstProject.addEventListener("click", (e) => {
-buttonId = e.target.textContent
-const header = document.createElement("p")
-firstProject.setAttribute('id', buttonId)
+    buttonId = e.target.textContent
+    const header = document.createElement("p")
+    firstProject.setAttribute('id', buttonId)
 
-  bodyDiv.textContent = ""
-  contentDiv.textContent = ""
+    bodyDiv.textContent = ""
+    contentDiv.textContent = ""
   
-  header.style.fontSize = "30px"
-  header.style.color = "#334155"
-  hiddenInput.setAttribute("value", buttonId)
+    header.style.fontSize = "30px"
+    header.style.color = "#334155"
+    hiddenInput.setAttribute("value", buttonId)
   
   
-  //event listener for button used to add other tasks to a project
-  majorButton.addEventListener("click", () => {
-    modalTwo.style.display = "block"
-})
+    //event listener for button used to add other tasks to a project
+    majorButton.addEventListener("click", () => {
+      modalTwo.style.display = "block"
+    })
   
   majorButton.classList.add("major-button")
   buttonGroup.appendChild(majorButton)
@@ -91,13 +88,12 @@ firstProject.setAttribute('id', buttonId)
 current = e.target.textContent
 })
 
-
     const demoProject = document.createElement("button")
     plusBtn = document.createElement("button")
 
     plusBtn.textContent = " +    New Project"
     plusBtn.setAttribute("id", "myBtn")
-    demoProject.textContent = "The Odin Project"
+    demoProject.textContent = "Project 1"
     
     plusBtn.onclick = function() {
         modal.style.display = "block";
@@ -298,8 +294,6 @@ newDiv.appendChild(newProject)
 
 documentedProjects.appendChild(newListItem)
 }
-
-
 
 function cancelModal() {
     modal.style.display = "none";
